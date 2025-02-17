@@ -9,7 +9,14 @@ int main()
     while(1)
     {
         system("cls");
-        printf("%02d : %02d : %02d",hour,minute,second);
+        time_t s,val=1;
+        struct tm* current_time;
+    
+        s=time(NULL);
+        current_time=localtime(&s);
+    
+        printf("%02d : %02d : %02d",current_time->tm_hour,current_time->tm_min,current_time->tm_sec);
+        //printf("%02d : %02d : %02d",hour,minute,second);
         fflush(stdout);
         second++;
         if(second==60)
